@@ -29,7 +29,7 @@ png("yRNA_fragment_distribution.png", width = 10, height = 3 * height_multi, uni
 gg <- ggplot(df, aes(loc, count)) +
   geom_bar(stat='identity', width = 1) + 
   scale_x_continuous(name = 'Nucleotide position') +
-  scale_y_continuous(name = 'Fragment loc',
+  scale_y_continuous(name = 'Fragment amount',
                      breaks = c(0,.25,.5,.75,1)) +
   facet_wrap(~yRNA, nrow = 1, scales = "free_x") +
   theme_bw()
