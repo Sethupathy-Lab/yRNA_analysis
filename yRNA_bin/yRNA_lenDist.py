@@ -57,7 +57,8 @@ def read_lengths_dict(file):
             full_length = int(name_li[3])
            
             # Dont include if nearly a full yRNA
-            if length > full_length * .6:
+            if length > 50:
+                print l
                 continue
 
             if yRNA not in yRNA_di:
@@ -96,6 +97,11 @@ def distributions_output(outPath, lengths, yRNAs, out_di, yRNA_counts):
     '''
     pass
     '''
+    yRNA_name = {'yRNA1' : 'RNY1',
+                 'yRNA2' : 'RNY2',
+                 'yRNA3' : 'RNY3',
+                 'yRNA4' : 'RNY4',
+                 'yRNA5' : 'RNY5'}
     low = int(min(lengths))
     high = int(max(lengths))
     output = '{}/yRNA_distributions.csv'.format(outPath)
@@ -110,7 +116,7 @@ def distributions_output(outPath, lengths, yRNAs, out_di, yRNA_counts):
                     except KeyError:
                         len_per = 0
                     f.write('{},{},{},{},{}\n'.format(samp, 
-                                                      y, 
+                                                      yRNA_name[y], 
                                                       l, 
                                                       len_per, 
                                                       yRNA_counts[samp][y]))

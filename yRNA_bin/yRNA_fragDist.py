@@ -61,10 +61,18 @@ def write_fragment_locations(frag_loc, output, name):
     '''
     holder
     '''
+    yRNA_name = {'yRNA1' : 'RNY1',
+                 'yRNA2' : 'RNY2',
+                 'yRNA3' : 'RNY3',
+                 'yRNA4' : 'RNY4',
+                 'yRNA5' : 'RNY5'}
     with open(output, 'a+') as fo:
         for yRNA, locs in frag_loc.iteritems():
             for loc, count in locs.iteritems():
-                fo.write('{},{},{},{}\n'.format(yRNA, loc, count, name))
+                fo.write('{},{},{},{}\n'.format(yRNA_name[yRNA], 
+                                                loc, 
+                                                count, 
+                                                name))
 
 
 def location_within_yRNA(df):
